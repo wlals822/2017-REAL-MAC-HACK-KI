@@ -13,9 +13,6 @@ import kotlinx.android.synthetic.main.item_preview_imge.view.*
 class PreviewPagerAdapter() : PagerAdapter(){
 
     private val imageList = arrayListOf<Int>(
-            R.drawable.iamge_lake,
-            R.drawable.house,
-            R.drawable.street
     )
     override fun isViewFromObject(view: View?, `object`: Any?): Boolean {
         return view == `object` as View

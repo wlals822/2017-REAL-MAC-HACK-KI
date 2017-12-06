@@ -52,6 +52,8 @@ class SignInActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
 
                     UserInfoManager.setUserInfo(response.body())
+                    UserInfoManager.setPassword(password)
+
                     val intent = Intent(this@SignInActivity,
                             MainActivity::class.java)
 

@@ -31,6 +31,13 @@ object UserInfoManager {
         this.user = user!!
     }
 
+    fun setPassword(password: String) {
+        val editor = preference.edit()
+        editor.putString(AppKeys.password, password)
+        editor.apply()
+    }
+
+
     fun setKey(key: String) {
         firebaseUserKey = key
         val editor = preference.edit()
@@ -40,20 +47,6 @@ object UserInfoManager {
 
     fun getUserFirebaseKey() : String{
         return preference.getString(AppKeys.userFirebaseKey, "")
-    }
-
-    fun addChater(email: String) {
-        val emails = preference.getStringSet("chatingEmails", HashSet<String>())
-
-        val editor = preference.edit()
-        emails.add(email)
-        editor.putStringSet("chatingEmails", emails)
-        editor.apply()
-    }
-
-    fun getChaters() : Set<String> {
-        val chaters = preference.getStringSet("chatingEmails", HashSet<String>())
-        return chaters
     }
 
     fun getPreference() = preference
@@ -69,8 +62,10 @@ object UserInfoManager {
     fun getLogineduser(): User{
         val name = preference.getString(AppKeys.userName, "no name")
         val email = preference.getString(AppKeys.userEmail, "no email")
+        val password = preference.getString(AppKeys.password, " ")
+        val id = preference.getInt(AppKeys.userId, 0)
 
-        return User(name = name, email = email, id = null, profileImg = "")
+        return User(name = name, email = email, id = id, profileImg = null, password = password)
     }
 
 

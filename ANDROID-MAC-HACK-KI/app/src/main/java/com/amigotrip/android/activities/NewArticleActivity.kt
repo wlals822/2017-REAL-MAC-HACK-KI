@@ -53,8 +53,8 @@ class NewArticleActivity : AppCompatActivity() {
 
         val article =
                 Article(contents = "hello world",
-                        id = null,
                         createDate = null,
+                        id = null,
                         location = "korea",
                         photos = null,
                         writer = user)
