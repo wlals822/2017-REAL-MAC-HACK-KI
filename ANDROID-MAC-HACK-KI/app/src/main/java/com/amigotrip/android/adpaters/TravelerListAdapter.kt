@@ -36,6 +36,11 @@ class TravelerListAdapter : RecyclerView.Adapter<TravelerListAdapter.ViewHolder>
         return travelerArticleList.size
     }
 
+    fun addArticles(articles: List<Article>) {
+        travelerArticleList.addAll(articles)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(article: Article) {

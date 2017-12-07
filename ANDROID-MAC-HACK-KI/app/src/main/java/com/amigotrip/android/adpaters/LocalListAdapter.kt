@@ -46,11 +46,11 @@ class LocalListAdapter : RecyclerView.Adapter<LocalListAdapter.ViewHolder>(){
         fun bind(article: Article) {
             itemView.tv_tags.text = article.location
             itemView.tv_name.text = article.writer.name
+            itemView.tv_message_preview.text = article.contents
+
             itemView.pager_preview.adapter = PreviewPagerAdapter()
             itemView.pager_preview.setPageTransformer(true, ZoomOutPageTransformer())
-
             itemView.setOnClickListener { view -> localListItemClickListener.onLocalItemClick(view, article) }
-
         }
     }
 

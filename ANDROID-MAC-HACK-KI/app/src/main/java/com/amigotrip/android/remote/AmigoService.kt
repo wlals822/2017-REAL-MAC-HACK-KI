@@ -40,6 +40,9 @@ interface AmigoService {
     @PUT("/articles/locals")
     fun putAriticle(): Call<ApiResult>
 
+    @GET("/articles/traveler")
+    fun getTravelArticles(): Call<List<Article>>
+
 
     companion object {
 
